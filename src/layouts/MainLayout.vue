@@ -1,34 +1,21 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated style="background-color: white">
-      <q-toolbar>
-        <q-toolbar-title>
-          <img alt="Quasar logo" src="~assets/logo.png" style="height: 70px" />
-        </q-toolbar-title>
-        <q-tabs
-          no-caps
-          active-color="primary"
-          indicator-color="transparent"
-          class="text-grey-8"
-          v-model="tab"
-        >
-          <EssentialLink
-            v-for="link in essentialLinks"
-            :key="link.title"
-            v-bind="link"
-            style="color: #2c91c9"
-          />
-        </q-tabs>
-      </q-toolbar>
+      <EssentialLink />
     </q-header>
 
     <q-page-container>
+      <BannerContainer />
       <div class="page-container">
         <div class="content-container">
           <AproposContainer />
           <ServicesContainer />
+          <RealisationsContainer />
+          <ContactContainer />
         </div>
       </div>
+
+      <FooterContainer />
     </q-page-container>
   </q-layout>
 </template>
@@ -38,29 +25,10 @@ import { defineComponent, ref } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
 import AproposContainer from "components/Apropos.vue";
 import ServicesContainer from "components/Services.vue";
-
-const linksList = [
-  {
-    title: "Nous connaître",
-    icon: "home_work",
-    link: "",
-  },
-  {
-    title: "Nos services",
-    icon: "computer",
-    link: "",
-  },
-  {
-    title: "Nos références",
-    icon: "web",
-    link: "",
-  },
-  {
-    title: "Contact",
-    icon: "contact_mail",
-    link: "",
-  },
-];
+import RealisationsContainer from "components/Realisations.vue";
+import ContactContainer from "components/Contact.vue";
+import BannerContainer from "components/Banner.vue";
+import FooterContainer from "components/Footer.vue";
 
 export default defineComponent({
   name: "MainLayout",
@@ -69,13 +37,16 @@ export default defineComponent({
     EssentialLink,
     AproposContainer,
     ServicesContainer,
+    RealisationsContainer,
+    ContactContainer,
+    BannerContainer,
+    FooterContainer,
   },
 
   setup() {
     const leftDrawerOpen = ref(false);
 
     return {
-      essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;

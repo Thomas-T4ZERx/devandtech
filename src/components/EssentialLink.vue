@@ -1,6 +1,9 @@
 <template>
-  <q-header elevated style="background-color: white">
-    <q-toolbar class="text-blue shadow-2 rounded-borders">
+  <q-header elevated style="background-color: #fdfbf8">
+    <q-toolbar
+      class="text-blue shadow-2 rounded-borders"
+      style="background-color: #fdfbf8"
+    >
       <img alt="Quasar logo" src="~assets/logo.png" style="height: 70px" />
 
       <q-btn
@@ -40,12 +43,10 @@
     v-model="leftDrawerOpen"
     side="left"
     bordered
-    content-class="bg-white burger-drawer"
-    :width="400"
-    style="position: fixed; top: 0; left: 0; height: 100%"
+    content-class="bg-white burger-drawer qDrawerList"
+    :width="430"
+    style=""
   >
-    <!-- Utilisation de flex pour centrer le contenu verticalement -->
-
     <q-list dense>
       <q-item>
         <q-btn
@@ -54,8 +55,7 @@
           text-color="blue"
           size="md"
           @click="leftDrawerOpen = false"
-          class="q-ml-auto"
-          style="float: right; margin-right: 15px; top: 15px"
+          class="q-mx-auto drawerButon"
         />
       </q-item>
       <q-item
@@ -63,24 +63,14 @@
         v-for="link in essentialLinks"
         :key="link.title"
         @click="navigateTo(link.link)"
-        style="top: 50px"
+        class="itemList"
       >
-        <!-- Icône et texte ici -->
-        <q-item-section
-          avatar
-          class="blue-text"
-          v-if="isScreenSmall"
-          style="margin-left: 80px; margin-right: auto"
-        >
+        <q-item-section avatar class="blue-text iconList" v-if="isScreenSmall">
           <q-icon :name="link.icon" />
-
-          <br />
         </q-item-section>
-
-        <q-item-section class="blue-text" style="font-size: 20px">
+        <q-item-section class="blue-text textList">
           <q-item-label>{{ link.title }}</q-item-label>
-
-          <br />
+          <div class="iconListborder"></div>
         </q-item-section>
       </q-item>
     </q-list>
@@ -168,37 +158,3 @@ const linksList = [
   },
 ];
 </script>
-
-<style>
-.icon-tab {
-  width: auto; /* Ajustez la largeur des onglets selon le contenu */
-}
-
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-right: 20px; /* Espace plus important entre l'icône et le texte */
-}
-
-/* Style pour le q-drawer */
-.bg-white {
-  background-color: white;
-}
-
-/* Style pour le texte bleu dans le tiroir */
-.blue-text {
-  color: #2196f3 !important;
-}
-
-/* Style pour le menu burger */
-.burger-drawer {
-  width: 300px; /* Largeur personnalisée du menu burger (ajustez selon vos besoins) */
-}
-
-@media screen and (max-width: 1000px) {
-  .test {
-    display: none;
-  }
-}
-</style>

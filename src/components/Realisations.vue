@@ -1,10 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <h1 style="color: #e47b29">Réalisations</h1>
-    </div>
-    <div class="col-2"></div>
+  <div class="col-12">
+    <h1 class="titleComponents">Réalisations</h1>
   </div>
   <q-card class="my-card">
     <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" style="height: 500px">

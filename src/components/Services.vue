@@ -1,10 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <h1 style="color: #e47b29">Nos offres de services</h1>
-    </div>
-    <div class="col-2"></div>
+  <div class="col-12">
+    <h1 class="titleComponents">Nos offres de services</h1>
   </div>
   <div class="row">
     <div class="col-5">

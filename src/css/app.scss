@@ -1,1 +1,102 @@
 // app global css in SCSS form
+
+.page-container {
+  background-color: #fdfbf8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1500px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+//menu
+.separeted {
+  border-bottom: 8px groove #1c87c9;
+}
+
+.icon-tab {
+  width: auto; /* Ajustez la largeur des onglets selon le contenu */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 20px; /* Espace plus important entre l'icône et le texte */
+}
+
+/* Style pour le q-drawer */
+.bg-white {
+  background-color: white;
+}
+
+/* Style pour le texte bleu dans le tiroir */
+.blue-text {
+  color: #2196f3 !important;
+}
+
+/* Style pour le menu burger */
+.burger-drawer {
+  width: 300px; /* Largeur personnalisée du menu burger (ajustez selon vos besoins) */
+}
+
+@media screen and (max-width: 1000px) {
+  .test {
+    display: none;
+  }
+}
+
+.delimitedLine {
+  position: absolute;
+  margin-top: 22px;
+  width: 100%;
+}
+
+.itemList {
+  top: 50px;
+  height: 70px;
+}
+
+.iconList {
+  margin-left: 80px;
+  margin-right: "auto";
+}
+
+.textList {
+  font-size: 20px;
+}
+
+.qDrawerList {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100% !important;
+}
+
+.drawerButon {
+  top: 30px;
+  left: -2% !important;
+}
+
+.iconListborder {
+  margin-left: -90px;
+  width: 280px;
+  border-bottom: 1px groove #2196f3;
+  position: fixed;
+  margin-top: 60px;
+}
+
+.titleComponents {
+  color: #2196f3;
+  text-align: center;
+  word-wrap: break-word;
+  //border-top: 1px solid #2196f3;
+  border-bottom: 1px solid #2196f3;
+  text-decoration: none;
+}

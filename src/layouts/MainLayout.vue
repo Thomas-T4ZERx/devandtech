@@ -1,16 +1,28 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hhr lpr ffR">
     <q-header elevated style="background-color: white">
       <EssentialLink />
     </q-header>
 
     <q-page-container>
       <BannerContainer />
-      <div class="page-container">
+      <div class="page-container" id="page-container-apropos">
         <div class="content-container">
           <AproposContainer />
+        </div>
+      </div>
+      <div class="page-container" id="page-container-service">
+        <div class="content-container">
           <ServicesContainer />
+        </div>
+      </div>
+      <div class="page-container" id="page-container-realisations">
+        <div class="content-container">
           <RealisationsContainer />
+        </div>
+      </div>
+      <div class="page-container" id="page-container-contact">
+        <div class="content-container">
           <ContactContainer />
         </div>
       </div>
@@ -57,19 +69,6 @@ export default defineComponent({
 </script>
 
 <style>
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content-container {
-  width: 100%;
-  max-width: 1500px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
 @media (max-width: 600px) {
   .content-container {
     padding: 10px;

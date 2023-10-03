@@ -4,7 +4,7 @@
       class="text-blue shadow-2 rounded-borders"
       style="background-color: #fdfbf8"
     >
-      <img alt="Quasar logo" src="~assets/logo.png" style="height: 70px" />
+      <img alt="Quasar logo" src="~assets/logoNew.png" style="height: 70px" />
 
       <q-btn
         icon="menu"

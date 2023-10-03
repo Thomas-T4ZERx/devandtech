@@ -1,5 +1,5 @@
 <template>
-  <q-card flat bordered style="background-color: #fefcfa; margin-top: 20px">
+  <q-card flat bordered style="background-color: #fffefc; margin-top: 20px">
     <q-card-section horizontal>
       <q-card-section>
         <div class="col-12">

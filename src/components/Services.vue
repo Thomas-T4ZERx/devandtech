@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-3 col-sm-12">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/dev.gif" />
+        <img src="~assets/dev.png" />
 
         <q-card-section>
           <div class="text-h6" style="text-align: center">Développement</div>
@@ -20,7 +20,7 @@
 
     <div class="col-md-3 col-sm-12">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/referencement.gif" />
+        <img src="~assets/referencement.png" />
 
         <q-card-section>
           <div class="text-h6" style="text-align: center">Référencement</div>
@@ -34,7 +34,7 @@
 
     <div class="col-md-3 col-sm-12">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/admin.gif" />
+        <img src="~assets/admin.png" />
 
         <q-card-section>
           <div class="text-h6" style="text-align: center">Administration</div>
@@ -47,7 +47,7 @@
     </div>
     <div class="col-md-3 col-sm-12" style="text-align: center">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/web.gif" />
+        <img src="~assets/web.png" />
 
         <q-card-section>
           <div class="text-h6">Les solutions</div>

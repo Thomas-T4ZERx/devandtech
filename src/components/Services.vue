@@ -3,26 +3,28 @@
     <h1 class="titleComponents">Nos offres de services</h1>
   </div>
   <div class="row">
-    <div class="col-5">
+    <div class="col-md-3 col-sm-12">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/developpement.jpg" />
+        <img src="~assets/dev.gif" />
 
         <q-card-section>
-          <div class="text-h6">Développement</div>
-          <div class="text-subtitle2">
+          <div class="text-h6" style="text-align: center">Développement</div>
+          <div class="text-subtitle2" style="text-align: center">
             Développement de votre site internet sur mesure
+            <br />
+            <br />
           </div>
         </q-card-section>
       </q-card>
     </div>
-    <div class="col-1"></div>
-    <div class="col-5">
+
+    <div class="col-md-3 col-sm-12">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/referencement.jpg" />
+        <img src="~assets/referencement.gif" />
 
         <q-card-section>
-          <div class="text-h6">Référencement</div>
-          <div class="text-subtitle2">
+          <div class="text-h6" style="text-align: center">Référencement</div>
+          <div class="text-subtitle2" style="text-align: center">
             Référencement naturel de votre site internet pour atteindre la
             première page
           </div>
@@ -30,26 +32,29 @@
       </q-card>
     </div>
 
-    <div class="col-5">
+    <div class="col-md-3 col-sm-12">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/admin.jpg" />
+        <img src="~assets/admin.gif" />
 
         <q-card-section>
-          <div class="text-h6">Administration</div>
-          <div class="text-subtitle2">
-            Gestion personnalisée de votre site internet
+          <div class="text-h6" style="text-align: center">Administration</div>
+          <div class="text-subtitle2" style="text-align: center">
+            Gestion personnalisée de votre site internet <br />
+            <br />
           </div>
         </q-card-section>
       </q-card>
     </div>
-    <div class="col-1"></div>
-    <div class="col-5">
+    <div class="col-md-3 col-sm-12" style="text-align: center">
       <q-card flat bordered class="q-ma-sm">
-        <img src="~assets/web.jpg" />
+        <img src="~assets/web.gif" />
 
         <q-card-section>
           <div class="text-h6">Les solutions</div>
-          <div class="text-subtitle2">E-commerce, site dynamique</div>
+          <div class="text-subtitle2" style="text-align: center">
+            E-commerce, site dynamique <br />
+            <br />
+          </div>
         </q-card-section>
       </q-card>
     </div>

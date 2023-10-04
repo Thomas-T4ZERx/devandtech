@@ -4,8 +4,10 @@
       <v-col class="text-center mt-4" cols="12">
         <q-toolbar bordered class="bg-grey-3 text-primary">
           <q-toolbar-title>
-            {{ new Date().getFullYear() }} —
-            <strong>Dev&Tech</strong>
+            {{ new Date().getFullYear() }} — <strong>Dev&Tech</strong> -
+            <a href="https://storyset.com/online"
+              >Online illustrations by Storyset</a
+            >
           </q-toolbar-title>
         </q-toolbar>
       </v-col>

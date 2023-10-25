@@ -84,8 +84,16 @@
             ]"
             :error="!isMessageValid"
           />
+          <p>
+            <q-checkbox v-model="acceptPrivacyPolicy" />
+
+            J'accepte la
+            <a @click="politiques = true" class="link-text"
+              >politique de confidentialité</a
+            >
+          </p>
           <div>
-            <vue-friendly-captcha sitekey="FCMIQ6ARDN414T91" />
+            <vue-friendly-captcha :sitekey="data.serviceId.siteKey" />
             <br />
             <q-btn label="Envoyer" type="submit" value="Send" color="primary" />
             <q-btn
@@ -109,6 +117,17 @@
       />
     </div>
   </div>
+  <q-dialog v-model="politiques" full-width>
+    <q-card>
+      <q-card-section class="q-pt-none">
+        <div v-html="data.politiques.politiques"></div>
+      </q-card-section>
+      <q-separator />
+      <q-card-actions align="right">
+        <q-btn flat label="Fermer" color="primary" v-close-popup />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
@@ -116,6 +135,7 @@ import { ref } from "vue";
 import { useQuasar } from "quasar";
 import emailjs from "emailjs-com";
 import VueFriendlyCaptcha from "@somushq/vue3-friendly-captcha";
+import data from "../data/data.js";
 
 export default {
   name: "ContactContainer",
@@ -130,6 +150,8 @@ export default {
     const Phone = ref("");
     const Email = ref("");
     const Message = ref("");
+    const acceptPrivacyPolicy = ref(false); // Ajout de la case à cocher
+
     const isEmailSent = ref(false);
 
     const isSocietyNameValid = ref(true);
@@ -182,6 +204,16 @@ export default {
         isMessageValid.value = true;
       }
 
+      if (!acceptPrivacyPolicy.value) {
+        $q.notify({
+          position: "center",
+          icon: "warning",
+          color: "negative",
+          message: "Vous devez accepter la politique de confidentialité.",
+        });
+        return; // Empêche l'envoi du formulaire
+      }
+
       const templateParams = {
         societyName: SocietyName.value,
         firstName: FirstName.value,
@@ -193,10 +225,10 @@ export default {
 
       try {
         await emailjs.send(
-          "service_4g6vomz",
-          "template_99jr5lb",
+          data.serviceId.serviceId,
+          data.serviceId.templateId,
           templateParams,
-          "FMUu0TeZu-HpJRWC0"
+          data.serviceId.userId
         );
         isEmailSent.value = true;
         $q.notify({
@@ -231,6 +263,7 @@ export default {
       Phone.value = "";
       Email.value = "";
       Message.value = "";
+      acceptPrivacyPolicy.value = false;
       isEmailSent.value = false;
     };
 
@@ -241,6 +274,7 @@ export default {
       Phone,
       Email,
       Message,
+      acceptPrivacyPolicy,
       isEmailSent,
       sendEmail,
       resetForm,
@@ -250,7 +284,16 @@ export default {
       isPhoneValid,
       isEmailValid,
       isMessageValid,
+      data: data,
+      politiques: ref(false),
     };
   },
 };
 </script>
+<style scoped>
+.link-text {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+</style>

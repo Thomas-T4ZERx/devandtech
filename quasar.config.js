@@ -42,8 +42,14 @@ module.exports = configure(function (/* ctx */) {
       // 'line-awesome',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
-      "roboto-font", // optional, you are not bound to it
-      "material-icons", // optional, you are not bound to it
+      "material-icons",
+      "mdi-v7",
+      "ionicons-v4", // last webfont was available in v4.6.3
+      "eva-icons",
+      "fontawesome-v6",
+      "themify",
+      "line-awesome",
+      "bootstrap-icons",
     ],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
@@ -98,7 +104,7 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ["Notify"],
+      plugins: ["Notify", "Cookies"],
     },
 
     // animations: 'all', // --- includes all animations

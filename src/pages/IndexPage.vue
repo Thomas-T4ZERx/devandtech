@@ -1,8 +1,8 @@
 <template>
   <q-page class="flex flex-center">
     <img
-      alt="Quasar logo"
-      src="~assets/devandtech.jpg"
+      alt="Dev&Tech"
+      src="~assets/devandtech-modified.png"
       style="width: 200px; height: 200px"
     />
   </q-page>

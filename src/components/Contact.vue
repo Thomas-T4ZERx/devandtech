@@ -11,7 +11,12 @@
             filled
             v-model="SocietyName"
             label="Nom de la société *"
-            :rules="[val => isSocietyNameValid || val && val.length > 0 || 'Nom de la société obligatoire']"
+            :rules="[
+              (val) =>
+                isSocietyNameValid ||
+                (val && val.length > 0) ||
+                'Nom de la société obligatoire',
+            ]"
             :error="!isSocietyNameValid"
           />
 
@@ -19,7 +24,12 @@
             filled
             v-model="FirstName"
             label="Nom *"
-            :rules="[val => isFirstNameValid || val && val.length > 0 || 'Nom obligatoire']"
+            :rules="[
+              (val) =>
+                isFirstNameValid ||
+                (val && val.length > 0) ||
+                'Nom obligatoire',
+            ]"
             :error="!isFirstNameValid"
           />
 
@@ -27,7 +37,12 @@
             filled
             v-model="LastName"
             label="Prénom"
-            :rules="[val => isLastNameValid || val && val.length > 0 || 'Prénom obligatoire']"
+            :rules="[
+              (val) =>
+                isLastNameValid ||
+                (val && val.length > 0) ||
+                'Prénom obligatoire',
+            ]"
             :error="!isLastNameValid"
           />
 
@@ -35,7 +50,12 @@
             filled
             v-model="Phone"
             label="Téléphone"
-            :rules="[val => isPhoneValid || val && val.length > 0 || 'Téléphone obligatoire']"
+            :rules="[
+              (val) =>
+                isPhoneValid ||
+                (val && val.length > 0) ||
+                'Téléphone obligatoire',
+            ]"
             :error="!isPhoneValid"
           />
 
@@ -44,7 +64,10 @@
             filled
             type="email"
             label="E-mail"
-            :rules="[val => isEmailValid || val && val.length > 0 || 'E-mail obligatoire']"
+            :rules="[
+              (val) =>
+                isEmailValid || (val && val.length > 0) || 'E-mail obligatoire',
+            ]"
             :error="!isEmailValid"
           />
 
@@ -53,13 +76,18 @@
             filled
             type="textarea"
             label="Message"
-            :rules="[val => isMessageValid || val && val.length > 0 || 'Message obligatoire']"
+            :rules="[
+              (val) =>
+                isMessageValid ||
+                (val && val.length > 0) ||
+                'Message obligatoire',
+            ]"
             :error="!isMessageValid"
           />
           <div>
             <vue-friendly-captcha sitekey="FCMIQ6ARDN414T91" />
             <br />
-            <q-btn label="Envoyer" type="submit" value="Send" color="primary"/>
+            <q-btn label="Envoyer" type="submit" value="Send" color="primary" />
             <q-btn
               label="Réinitialiser"
               type="reset"
@@ -74,38 +102,42 @@
     </div>
     <div class="col-md-6 col-sm-12">
       <br />
-      <img src="~assets/mail.png" width="500" class="d-none d-md-block imageMobile" />
+      <img
+        src="~assets/mail.png"
+        width="500"
+        class="d-none d-md-block imageMobile"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useQuasar } from 'quasar'
-import emailjs from 'emailjs-com'
-import VueFriendlyCaptcha from '@somushq/vue3-friendly-captcha'
+import { ref } from "vue";
+import { useQuasar } from "quasar";
+import emailjs from "emailjs-com";
+import VueFriendlyCaptcha from "@somushq/vue3-friendly-captcha";
 
 export default {
   name: "ContactContainer",
   components: {
-    VueFriendlyCaptcha
+    VueFriendlyCaptcha,
   },
   setup() {
-    const $q = useQuasar()
-    const SocietyName = ref("")
-    const FirstName = ref("")
-    const LastName = ref("")
-    const Phone = ref("")
-    const Email = ref("")
-    const Message = ref("")
-    const isEmailSent = ref(false)
+    const $q = useQuasar();
+    const SocietyName = ref("");
+    const FirstName = ref("");
+    const LastName = ref("");
+    const Phone = ref("");
+    const Email = ref("");
+    const Message = ref("");
+    const isEmailSent = ref(false);
 
-    const isSocietyNameValid = ref(true)
-    const isFirstNameValid = ref(true)
-    const isLastNameValid = ref(true)
-    const isPhoneValid = ref(true)
-    const isEmailValid = ref(true)
-    const isMessageValid = ref(true)
+    const isSocietyNameValid = ref(true);
+    const isFirstNameValid = ref(true);
+    const isLastNameValid = ref(true);
+    const isPhoneValid = ref(true);
+    const isEmailValid = ref(true);
+    const isMessageValid = ref(true);
 
     const sendEmail = async () => {
       if (!SocietyName.value || SocietyName.value.length === 0) {
@@ -156,8 +188,8 @@ export default {
         lastName: LastName.value,
         phone: Phone.value,
         email: Email.value,
-        message: Message.value
-      }
+        message: Message.value,
+      };
 
       try {
         await emailjs.send(
@@ -165,42 +197,42 @@ export default {
           "template_99jr5lb",
           templateParams,
           "FMUu0TeZu-HpJRWC0"
-        )
-        isEmailSent.value = true
+        );
+        isEmailSent.value = true;
         $q.notify({
-          position: 'center',
-          icon: 'done',
-          color: 'positive',
-          message: 'Votre message a bien été envoyé'
-        })
-        resetForm()
+          position: "center",
+          icon: "done",
+          color: "positive",
+          message: "Votre message a bien été envoyé",
+        });
+        resetForm();
       } catch (error) {
         $q.notify({
-          position: 'center',
-          icon: 'done',
-          color: 'negative',
-          message: "Erreur lors de l'envoi de votre message"
-        })
-        resetForm()
+          position: "center",
+          icon: "done",
+          color: "negative",
+          message: "Erreur lors de l'envoi de votre message",
+        });
+        resetForm();
       }
-    }
+    };
 
     const resetForm = () => {
-      isSocietyNameValid.value = true
-      isFirstNameValid.value = true
-      isLastNameValid.value = true
-      isPhoneValid.value = true
-      isEmailValid.value = true
-      isMessageValid.value = true
+      isSocietyNameValid.value = true;
+      isFirstNameValid.value = true;
+      isLastNameValid.value = true;
+      isPhoneValid.value = true;
+      isEmailValid.value = true;
+      isMessageValid.value = true;
 
-      SocietyName.value = ""
-      FirstName.value = ""
-      LastName.value = ""
-      Phone.value = ""
-      Email.value = ""
-      Message.value = ""
-      isEmailSent.value = false
-    }
+      SocietyName.value = "";
+      FirstName.value = "";
+      LastName.value = "";
+      Phone.value = "";
+      Email.value = "";
+      Message.value = "";
+      isEmailSent.value = false;
+    };
 
     return {
       SocietyName,
@@ -217,8 +249,8 @@ export default {
       isLastNameValid,
       isPhoneValid,
       isEmailValid,
-      isMessageValid
-    }
-  }
-}
+      isMessageValid,
+    };
+  },
+};
 </script>

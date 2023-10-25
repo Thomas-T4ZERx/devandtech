@@ -1,9 +1,6 @@
 <template>
   <q-layout view="hhr lpr ffR">
-    <q-header elevated style="background-color: white">
-      <EssentialLink />
-    </q-header>
-
+    <EssentialLink />
     <q-page-container>
       <BannerContainer />
       <div class="page-container" id="page-container-apropos">

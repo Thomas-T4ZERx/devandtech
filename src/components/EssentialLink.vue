@@ -81,6 +81,7 @@
 
 <script>
 import { defineComponent, ref, computed, watch, onMounted } from "vue";
+import VueScrollTo from "vue-scrollto";
 
 export default defineComponent({
   name: "EssentialLink",
@@ -151,26 +152,12 @@ export default defineComponent({
         default:
       }
     },
+
     scrollToSection(sectionId) {
-
       const section = document.getElementById(sectionId);
-
-      console.log(section)
-      if (section) {
-        console.log(section)
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-        console.log(section)
-        if (this.isScreenSmall) {
-          this.leftDrawerOpen = false;
-        }
-      }
-    }
-
-
-  }
+      VueScrollTo.scrollTo(section, 500, { offset: -10 });
+    },
+  },
 });
 
 const linksList = [
@@ -196,9 +183,3 @@ const linksList = [
   },
 ];
 </script>
-<style>
-  html {
-    scroll-behavior: smooth;
-    -webkit-scroll-behavior: smooth;
-  }
-</style>

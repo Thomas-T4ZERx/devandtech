@@ -1,5 +1,5 @@
 <template>
-  <q-img src="https://picsum.photos/1920/500" />
+  <q-img src="~assets/slider.png" />
 </template>
 
 <script>

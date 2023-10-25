@@ -3,7 +3,7 @@
     <q-header elevated style="background-color: white">
       <EssentialLink />
     </q-header>
-    <q-page-container>
+    <q-page-container style="padding-top: 70px">
       <BannerContainer />
       <div class="page-container" id="page-container-apropos">
         <div class="content-container">

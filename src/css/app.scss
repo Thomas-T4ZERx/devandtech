@@ -100,3 +100,16 @@
   //border-bottom: 1px solid #2196f3;
   //text-decoration: none;
 }
+
+@media (max-width: 600px) {
+  .titleComponents {
+    font-size: 50px;
+  }
+
+  .imageMobile{
+width:100%
+  }
+  .formMobile{
+    width:100%
+  }
+}

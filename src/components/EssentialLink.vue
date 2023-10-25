@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated style="background-color: #fdfbf8">
+  <q-header elevated style="background-color: #fdfbf8; position: fixed">
     <q-toolbar
       class="text-blue shadow-2 rounded-borders"
       style="background-color: #fdfbf8"
@@ -24,6 +24,7 @@
           :key="link.title"
           :name="link.title"
           class="icon-tab"
+          @click="navigateTo(link.title)"
         >
           <div class="icon-container">
             <q-icon
@@ -62,7 +63,8 @@
         clickable
         v-for="link in essentialLinks"
         :key="link.title"
-        @click="navigateTo(link.link)"
+        :name="link.title"
+        @click="navigateTo(link.title)"
         class="itemList"
       >
         <q-item-section avatar class="blue-text iconList" v-if="isScreenSmall">
@@ -130,9 +132,45 @@ export default defineComponent({
   },
   methods: {
     navigateTo(link) {
-      // Ajoutez la logique de navigation ici
+      if (this.isScreenSmall) {
+        this.leftDrawerOpen = false; // Fermer le menu en mode mobile
+      }
+      switch (link) {
+        case "Nous connaître":
+          this.scrollToSection("page-container-apropos");
+          break;
+        case "Nos services":
+          this.scrollToSection("page-container-service");
+          break;
+        case "Nos références":
+          this.scrollToSection("page-container-realisations");
+          break;
+        case "Contact":
+          this.scrollToSection("page-container-contact");
+          break;
+        default:
+      }
     },
-  },
+    scrollToSection(sectionId) {
+
+      const section = document.getElementById(sectionId);
+
+      console.log(section)
+      if (section) {
+        console.log(section)
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        console.log(section)
+        if (this.isScreenSmall) {
+          this.leftDrawerOpen = false;
+        }
+      }
+    }
+
+
+  }
 });
 
 const linksList = [
@@ -158,3 +196,9 @@ const linksList = [
   },
 ];
 </script>
+<style>
+  html {
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+  }
+</style>

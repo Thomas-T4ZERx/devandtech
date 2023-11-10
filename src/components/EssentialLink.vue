@@ -45,8 +45,6 @@
     side="left"
     bordered
     content-class="bg-white burger-drawer qDrawerList"
-    :width="430"
-    style=""
   >
     <q-list dense>
       <q-item>
